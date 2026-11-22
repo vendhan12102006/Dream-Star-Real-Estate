@@ -1,0 +1,1650 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#030827">
+  
+  <!-- Progressive Web App (PWA) & Mobile App Support for iOS & Android -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Dream Star">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Dream Star">
+  <title>Dream Star Real Estate &amp; Developers | Verified Properties in Anuppambattu, Chennai</title>
+  <meta name="description" content="Buy and sell DTCP approved houses, luxury villas, residential plots and commercial spaces in Anuppambattu, Minjur, Tiruvallur and North Chennai with 100% verified legal documents.">
+  <meta name="siteName" content="Dream Star Real Estate &amp; Developers">
+  <meta name="siteDescription" content="Buy and sell DTCP approved houses, luxury villas, residential plots and commercial spaces in Anuppambattu, Minjur, Tiruvallur and North Chennai with 100% verified legal documents.">
+  <meta property="og:site_name" content="Dream Star Real Estate &amp; Developers">
+  <meta property="og:title" content="Dream Star Real Estate &amp; Developers">
+  <meta property="og:description" content="DTCP & RERA Approved Villas, Residential Plots and Commercial Properties in Anuppambattu & Chennai North.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- SCROLL PROGRESS INDICATOR -->
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
+  <!-- OWNER LIVE CONTROL BAR (VISIBLE WHEN OWNER LOGGED IN) -->
+  <div class="owner-live-bar" id="ownerLiveBar" style="display:none;">
+    <div class="owner-live-bar-inner">
+      <div class="owner-live-tag">
+        <span class="owner-live-badge">👑 OWNER MODE</span>
+        <span>Website Content Management Active • Edit, Add or Delete any topic across the whole site</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <button class="btn btn-primary btn-sm" onclick="window.openOwnerPortal();" style="padding:4px 12px;font-size:0.8rem;">⚙️ Open Master CMS</button>
+        <button class="btn btn-success btn-sm" onclick="window.openAddPropertyModal();" style="padding:4px 12px;font-size:0.8rem;">+ Add Property</button>
+        <button class="btn btn-outline btn-sm" onclick="window.handleOwnerLogout();" style="padding:4px 12px;font-size:0.8rem;border-color:rgba(255,255,255,0.4);color:#ffffff;">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP CONTACT BAR -->
+  <div class="top-contact-bar">
+    <div class="wrap">
+      <div class="top-bar-left">
+        <span class="pulse-dot"></span>
+        <span id="topBarHours">Mon - Sun: 8:30 AM - 8:30 PM</span>
+        <span>•</span>
+        <a id="topBarAddressLink" href="https://www.google.com/maps/search/?api=1&query=Rajapalayam+Street+RS+Road+Anuppambattu+601203" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span id="topBarAddress">Opposite Anuppambattu Railway Gate, RS Road</span>
+        </a>
+      </div>
+      <div class="top-bar-right">
+        <a id="topBarPhone1" href="tel:+919994270551" onclick="window.triggerCallAutomation('9994270551'); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          <span>99942 70551</span>
+        </a>
+        <a id="topBarPhone2" href="tel:+919043743426" onclick="window.triggerCallAutomation('9043743426'); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          <span>90437 43426</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header class="site-header">
+    <div class="wrap">
+      <a href="#home" class="brand-link" id="brandLogoTrigger" onclick="window.switchTab('home');">
+        <div class="brand-logo-emblem">★</div>
+        <div class="brand-meta">
+          <span class="brand-title">DREAM STAR</span>
+          <span class="brand-subtitle">REAL ESTATE &amp; DEVELOPERS</span>
+        </div>
+      </a>
+
+      <!-- Public Navigation Tabs (SPA Single View Switching) -->
+      <nav class="main-nav" id="mainNav">
+        <a href="#home" class="nav-tab-link active" data-tab="home" onclick="window.switchTab('home'); return false;">Home</a>
+        <a href="#properties" class="nav-tab-link" data-tab="properties" onclick="window.switchTab('properties'); return false;">Properties</a>
+        <a href="#services" class="nav-tab-link" data-tab="services" onclick="window.switchTab('services'); return false;">Services</a>
+        <a href="#guides" class="nav-tab-link" data-tab="guides" onclick="window.switchTab('guides'); return false;">Legal Guide</a>
+        <a href="#about" class="nav-tab-link" data-tab="about" onclick="window.switchTab('about'); return false;">About Us</a>
+        <a href="#reviews" class="nav-tab-link" data-tab="reviews" onclick="window.switchTab('reviews'); return false;">Reviews</a>
+        <a href="#faqs" class="nav-tab-link" data-tab="faqs" onclick="window.switchTab('faqs'); return false;">FAQs</a>
+        <a href="#contact" class="nav-tab-link" data-tab="contact" onclick="window.switchTab('contact'); return false;">Contact</a>
+      </nav>
+
+      <!-- Client Header Actions & Prominent Owner Login -->
+      <div class="header-actions">
+        <!-- Install Mobile App Button (PWA for iOS & Android) -->
+        <button class="btn btn-outline btn-sm" id="installAppBtn" type="button" onclick="window.triggerAppInstall();" style="border-color:rgba(226,186,79,0.5);display:inline-flex;align-items:center;gap:6px;" title="Install Dream Star Mobile App">
+          <span>📲 Install App</span>
+        </button>
+        <!-- PROMINENT OWNER LOGIN BUTTON -->
+        <button class="btn btn-gold btn-sm" id="ownerHeaderBtn" type="button" onclick="window.handleOwnerAccessTrigger();" title="Owner Administration CMS">
+          <span>👑 Owner Login</span>
+        </button>
+        <div id="userAuthSection">
+          <button class="btn btn-outline btn-sm" id="clientLoginBtn" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Client Portal</span>
+          </button>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-sm" onclick="window.switchTab('contact'); return false;">Book Site Visit</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================== -->
+    <!-- VIEW 1: HOME PAGE                                       -->
+    <!-- ======================================================== -->
+    <div class="spa-view active" id="view-home">
+      <!-- HERO SECTION -->
+      <section class="hero-section">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-content-col">
+            <div class="hero-badge-pill">
+              <span>✦ 100% DTCP Approved &amp; Clear Titles</span>
+            </div>
+            <h1 class="hero-title gold-text" id="heroHeadline">Your Next House or Land with 100% Verified Titles</h1>
+            <p class="hero-subtitle" id="heroSubtext">Buy, sell, and build houses and land with clear documents, verified parent deeds, and trusted bank approvals — all directly from our Anuppambattu office.</p>
+            
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <a href="#properties" class="btn btn-primary" onclick="window.switchTab('properties'); return false;">Explore Listings</a>
+              <a id="heroWaBtn" href="https://wa.me/919994270551?text=Hi%20Dream%20Star%20Real%20Estate,%20I%20am%20looking%20for%20property%20details." target="_blank" rel="noopener" class="btn btn-wa" onclick="window.triggerWhatsAppAutomation('general'); return false;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.53 1.961.815 2.796.815 3.183 0 5.769-2.587 5.77-5.766-.001-3.182-2.588-5.768-5.77-5.768zm0 10.363c-.808 0-1.637-.231-2.392-.687l-.171-.101-1.776.466.474-1.733-.112-.178c-.521-.832-.796-1.503-.795-2.531.001-2.535 2.064-4.597 4.601-4.597 2.537 0 4.6 2.062 4.602 4.597 0 2.536-2.064 4.598-4.603 4.598z"/></svg>
+                <span>WhatsApp Us</span>
+              </a>
+              <a id="heroCallBtn" href="tel:+919994270551" class="btn btn-outline" onclick="window.triggerCallAutomation('9994270551'); return false;">Call Office</a>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="hero-stats-row">
+              <div class="stat-item">
+                <h3 id="statYears">10+</h3>
+                <p>Years Experience</p>
+              </div>
+              <div class="stat-item">
+                <h3 id="statClients">500+</h3>
+                <p>Happy Families</p>
+              </div>
+              <div class="stat-item">
+                <h3 id="statRate">100%</h3>
+                <p>Verified Titles</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-image-col">
+            <!-- HERO IMAGE SLIDER CAROUSEL -->
+            <div class="hero-slider-container" id="heroSlider">
+              <div class="hero-slides-track">
+                <!-- Slide 1 -->
+                <div class="hero-slide active">
+                  <img src="img/hero-estate.jpg" alt="RS Road Luxury Villas & Plots" onerror="this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80'">
+                  <div class="hero-image-overlay">
+                    <div>
+                      <span class="hero-featured-tag">Prime Project ★</span>
+                      <h4 style="margin-top:6px;font-size:1.1rem;color:#fff;">RS Road Luxury Villas &amp; Plots</h4>
+                      <p style="font-size:0.8rem;color:var(--mute);">Opposite Anuppambattu Railway Station • ₹65 Lakhs</p>
+                    </div>
+                    <a href="#properties" class="btn btn-primary btn-sm">View Details</a>
+                  </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="hero-slide">
+                  <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80" alt="Emerald Designer Villa">
+                  <div class="hero-image-overlay">
+                    <div>
+                      <span class="hero-featured-tag" style="background:rgba(16,185,129,0.85);color:#fff;">Ultra Luxury ★</span>
+                      <h4 style="margin-top:6px;font-size:1.1rem;color:#fff;">Emerald 4 BHK Designer Villa</h4>
+                      <p style="font-size:0.8rem;color:var(--mute);">Near New Bypass, Anuppambattu • ₹1.15 Cr</p>
+                    </div>
+                    <a href="#properties" class="btn btn-primary btn-sm">View Details</a>
+                  </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="hero-slide">
+                  <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Golden City Residential Plots">
+                  <div class="hero-image-overlay">
+                    <div>
+                      <span class="hero-featured-tag" style="background:rgba(59,130,246,0.85);color:#fff;">DTCP Approved ★</span>
+                      <h4 style="margin-top:6px;font-size:1.1rem;color:#fff;">Golden City Residential Plots</h4>
+                      <p style="font-size:0.8rem;color:var(--mute);">Minjur - Anuppambattu Corridor • ₹28.5 Lakhs</p>
+                    </div>
+                    <a href="#properties" class="btn btn-primary btn-sm">View Details</a>
+                  </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="hero-slide">
+                  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="Prime Commercial Space">
+                  <div class="hero-image-overlay">
+                    <div>
+                      <span class="hero-featured-tag" style="background:rgba(234,88,12,0.85);color:#fff;">High ROI ★</span>
+                      <h4 style="margin-top:6px;font-size:1.1rem;color:#fff;">Prime Commercial Complex</h4>
+                      <p style="font-size:0.8rem;color:var(--mute);">Main Highway Road, Anuppambattu • ₹1.45 Cr</p>
+                    </div>
+                    <a href="#properties" class="btn btn-primary btn-sm">View Details</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slider Navigation Controls -->
+              <button class="hero-slider-arrow hero-prev" id="heroPrevBtn" aria-label="Previous Slide">‹</button>
+              <button class="hero-slider-arrow hero-next" id="heroNextBtn" aria-label="Next Slide">›</button>
+
+              <!-- Slide Indicators / Dots -->
+              <div class="hero-slider-dots" id="heroDots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+                <span class="dot" data-index="3"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO SCROLL CUE -->
+        <div class="hero-scroll-cue">
+          <a href="#properties" class="scroll-down-link" id="heroScrollDown">
+            <span>Scroll To Explore</span>
+            <div class="scroll-mouse-icon">
+              <div class="scroll-wheel"></div>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH & FILTER BAR -->
+    <section class="wrap">
+      <div class="search-filter-card">
+        <!-- Location Hotspots Filter Pills -->
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(226,186,79,0.15);">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span style="font-size:0.82rem;color:var(--gold-light);font-weight:600;">📍 HOTSPOT LOCATIONS:</span>
+            <div class="location-pills" id="locationPillsContainer" style="display:inline-flex;gap:6px;flex-wrap:wrap;">
+              <!-- Dynamic location pills rendered by app.js -->
+            </div>
+          </div>
+          <div class="owner-section-ctrl" style="display:none;">
+            <button class="owner-edit-pill-btn" onclick="window.openAddLocationModal();">➕ Add Location Area</button>
+            <button class="owner-edit-pill-btn" onclick="window.openManageContentSection('locations');">⚙️ Manage Locations</button>
+          </div>
+        </div>
+
+        <form id="searchFilterForm" class="search-form-grid" onsubmit="event.preventDefault(); window.applyPropertyFilters();">
+          <div class="form-group">
+            <label for="filterSearch">Search Keyword / Location</label>
+            <input type="text" id="filterSearch" class="form-control" placeholder="e.g. Villa, Anuppambattu, Plot, 3 BHK">
+          </div>
+          <div class="form-group">
+            <label for="filterCategory">Property Type</label>
+            <select id="filterCategory" class="form-control">
+              <option value="All">All Types</option>
+              <option value="Villa">Independent Villa</option>
+              <option value="House">House</option>
+              <option value="Land">Residential Plot / Land</option>
+              <option value="Commercial">Commercial Space</option>
+              <option value="Apartment">Apartment / Flat</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="filterStatus">Status</label>
+            <select id="filterStatus" class="form-control">
+              <option value="All">All Statuses</option>
+              <option value="For Sale">For Sale</option>
+              <option value="For Rent">For Rent</option>
+              <option value="Sold">Sold</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="filterPrice">Max Budget</label>
+            <select id="filterPrice" class="form-control">
+              <option value="All">Any Budget</option>
+              <option value="30">Up to ₹30 Lakhs</option>
+              <option value="50">Up to ₹50 Lakhs</option>
+              <option value="80">Up to ₹80 Lakhs</option>
+              <option value="150">Up to ₹1.5 Crores</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="height:44px;align-self:flex-end;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span>Search Properties</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Quick Featured Banner on Home -->
+      <div class="wrap" style="margin-top:30px;text-align:center;">
+        <button type="button" class="btn btn-outline" style="border-radius:999px;padding:12px 28px;font-size:0.95rem;" onclick="window.switchTab('properties');">
+          <span>Explore All 6 Verified Properties &amp; Plots →</span>
+        </button>
+      </div>
+    </div> <!-- END VIEW 1: HOME -->
+
+    <!-- ======================================================== -->
+    <!-- VIEW 2: PROPERTIES PAGE                                 -->
+    <!-- ======================================================== -->
+    <div class="spa-view" id="view-properties">
+      <!-- PROPERTIES SECTION -->
+      <section class="properties-section" id="properties">
+      <div class="wrap">
+        <div class="section-header">
+          <span class="section-tag">Featured Listings</span>
+          <h2 class="section-title gold-text">Verified Properties For Sale</h2>
+          <p class="section-desc">Handpicked residential plots, independent villas, and commercial properties with 100% legal clearance in Anuppambattu and Tiruvallur.</p>
+          <div class="owner-section-ctrl" style="display:none;margin-top:12px;">
+            <button class="owner-edit-pill-btn" onclick="window.openAddPropertyModal();">➕ Add Property Listing</button>
+            <button class="owner-edit-pill-btn" onclick="window.openAddLandModal();">🌱 + Upload Land / Plot</button>
+            <button class="owner-edit-pill-btn" onclick="window.openManageContentSection('properties');">⚙️ Manage Listings</button>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills & View Mode Switcher -->
+        <div class="properties-controls-row">
+          <div class="category-chips-bar" id="categoryChips">
+            <button class="chip-btn active" data-category="All">All Listings</button>
+            <button class="chip-btn" data-category="Villa">Villas</button>
+            <button class="chip-btn" data-category="Land">Plots &amp; Land</button>
+            <button class="chip-btn" data-category="Commercial">Commercial</button>
+            <button class="chip-btn" data-category="Apartment">Apartments</button>
+          </div>
+
+          <!-- SLIDE OPTION vs GRID OPTION TOGGLE -->
+          <div class="view-mode-toggle">
+            <span class="view-mode-label">Mode:</span>
+            <button class="view-btn active" id="viewSlideBtn" type="button" title="Slide Option (Carousel)" onclick="window.setPropertyViewMode('slider');">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 2l-4 5-4-5"/></svg>
+              <span>Slide Option</span>
+            </button>
+            <button class="view-btn" id="viewGridBtn" type="button" title="Grid Option" onclick="window.setPropertyViewMode('grid');">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              <span>Grid Option</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slider Header Navigation (Active in Slider Mode) -->
+        <div class="properties-slider-header" id="propertiesSliderControls">
+          <span class="slider-status-text" id="propSliderStatus">Swipe or Click Arrows to Slide</span>
+          <div class="slider-nav-arrows">
+            <button class="slider-nav-btn" id="propPrevBtn" type="button" onclick="window.slideProperties(-1);" aria-label="Previous Properties">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 19l-7-7 7-7"/></svg>
+              <span>Prev</span>
+            </button>
+            <button class="slider-nav-btn" id="propNextBtn" type="button" onclick="window.slideProperties(1);" aria-label="Next Properties">
+              <span>Next</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Properties Wrapper (supports Slide Option & Grid Option) -->
+        <div class="properties-wrapper slider-mode" id="propertiesWrapper">
+          <div class="properties-grid" id="propertiesContainer">
+            <!-- Dynamic cards rendered by app.js -->
+            <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--mute);">
+              Loading verified property listings...
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> <!-- END VIEW 2: PROPERTIES -->
+
+  <!-- ======================================================== -->
+  <!-- VIEW 3: SERVICES PAGE                                   -->
+  <!-- ======================================================== -->
+  <div class="spa-view" id="view-services">
+    <!-- SERVICES SECTION -->
+    <section class="services-section" id="services">
+      <div class="wrap">
+        <div class="section-header">
+          <span class="section-tag">Comprehensive Solutions</span>
+          <h2 class="section-title gold-text">End-to-End Real Estate Services</h2>
+          <p class="section-desc">From legal title vetting to custom villa construction and registration, our Anuppambattu office manages everything under one roof.</p>
+          <div class="owner-section-ctrl" style="display:none;margin-top:12px;">
+            <button class="owner-edit-pill-btn" onclick="window.openAddServiceModal();">➕ Add New Service</button>
+            <button class="owner-edit-pill-btn" onclick="window.openManageContentSection('services');">⚙️ Manage Services</button>
+          </div>
+        </div>
+
+        <div class="services-grid" id="servicesContainer">
+          <!-- Dynamic Services rendered by app.js -->
+        </div>
+      </div>
+    </section>
+  </div> <!-- END VIEW 3: SERVICES -->
+
+  <!-- ======================================================== -->
+  <!-- VIEW 5: LEGAL GUIDE PAGE                                -->
+  <!-- ======================================================== -->
+  <div class="spa-view" id="view-guides">
+    <!-- LEGAL GUIDE & DTCP CHECKLIST -->
+    <section class="guide-section" id="guides">
+      <div class="wrap">
+        <div class="section-header">
+          <span class="section-tag">Buyer's Protection</span>
+          <h2 class="section-title gold-text">Essential Legal Checklist for Tamil Nadu Land Buyers</h2>
+          <p class="section-desc">Never purchase land or a house without verifying these critical documents. Dream Star ensures 100% compliance for every listed property.</p>
+          <div class="owner-section-ctrl" style="display:none;margin-top:12px;">
+            <button class="owner-edit-pill-btn" onclick="window.openAddGuideModal();">➕ Add Checklist Item</button>
+            <button class="owner-edit-pill-btn" onclick="window.openManageContentSection('guides');">⚙️ Manage Guides</button>
+          </div>
+        </div>
+
+        <div class="guide-box">
+          <div class="checklist-grid" id="guidesContainer">
+            <!-- Dynamic Checklist rendered by app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> <!-- END VIEW 5: GUIDES -->
+
+  <!-- ======================================================== -->
+  <!-- VIEW 6: ABOUT US PAGE (DEDICATED STANDALONE PAGE)        -->
+  <!-- ======================================================== -->
+  <div class="spa-view" id="view-about">
+    <section class="about-section">
+      <div class="wrap">
+        <div class="section-header">
+          <span class="section-tag">About Dream Star</span>
+          <h2 class="section-title gold-text" id="aboutHeading">Building Trust, Delivering Legally Clear Dreams Since 2014</h2>
+          <p class="section-desc" id="aboutTagline">Leading Real Estate Consultancy &amp; Builders in Anuppambattu, Minjur &amp; North Chennai.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-story-card">
+            <h3 style="color:var(--gold-light);margin-bottom:14px;font-size:1.35rem;">Our Story &amp; Heritage</h3>
+            <p id="aboutFullDesc" style="color:var(--ink);line-height:1.8;margin-bottom:20px;font-size:1.02rem;">
+              Founded in Anuppambattu, Dream Star Real Estate &amp; Developers is the premier real estate consultancy and builder in North Chennai and Tiruvallur. With more than a decade of proven integrity, we help families and investors secure 100% legally vetted plots, luxury villas, and commercial properties.
+            </p>
+            
+            <div class="credentials-badge-row">
+              <div class="cert-badge">
+                <span class="cert-icon">📜</span>
+                <div>
+                  <strong>RERA Registration</strong>
+                  <span id="aboutReraNum">TN/RERA/0426/2021</span>
+                </div>
+              </div>
+              <div class="cert-badge">
+                <span class="cert-icon">🏛️</span>
+                <div>
+                  <strong>DTCP Sanctioned</strong>
+                  <span id="aboutDtcpNum">DTCP/CHENNAI/2018</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-pillars-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+              <h3 style="color:var(--gold-light);font-size:1.35rem;margin:0;">Why Buyers Trust Dream Star</h3>
+              <div class="owner-section-ctrl" style="display:none;">
+                <button class="owner-edit-pill-btn" onclick="window.openAddPillarModal();">➕ Add Trust Pillar</button>
+                <button class="owner-edit-pill-btn" onclick="window.openManageContentSection('pillars');">⚙️ Manage</button>
+              </div>
+            </div>
+            <ul class="about-pillars-list" id="pillarsContainer">
+              <!-- Dynamic Pillars rendered by app.js -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- Stats Grid in About Page -->
+        <div class="about-stats-grid">
+          <div class="about-stat-box">
+            <h3>10+</h3>
+            <p>Years in Real Estate</p>
+          </div>
+          <div class="about-stat-box">
+            <h3>500+</h3>
+            <p>Happy Families Settled</p>
+          </div>
+          <div class="about-stat-box">
+            <h3>350+</h3>
+            <p>Approved Plots Handed Over</p>
+          </div>
+          <div class="about-stat-box">
+            <h3>85+</h3>
+            <p>Custom Villas Built</p>
+          </div>
+        </div>
+
+        <!-- Office Location Banner -->
+        <div class="about-office-banner">
+          <div>
+            <h4 style="color:var(--gold-light);font-size:1.2rem;margin-bottom:6px;">Visit Our Anuppambattu Office</h4>
+            <p style="color:var(--mute);font-size:0.95rem;">Opposite Anuppambattu Railway Gate, RS Road, Anuppambattu - 601203</p>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <a href="tel:+919994270551" class="btn btn-outline btn-sm" onclick="window.triggerCallAutomation('9994270551'); return false;">Call Office</a>
+            <button type="button" class="btn btn-primary btn-sm" onclick="window.switchTab('contact');">Contact Desk</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> <!-- END VIEW 6: ABOUT -->
+
+  <!-- ======================================================== -->
+  <!-- VIEW 7: REVIEWS PAGE                                    -->
+  <!-- ======================================================== -->
+  <div class="spa-view" id="view-reviews">
+    <!-- REVIEWS SECTION -->
+    <section class="reviews-section" id="reviews">
+      <div class="wrap">
+        <div class="section-header">
+          <span class="section-tag">Client Testimonials</span>
+          <h2 class="section-title gold-text">What Our Clients Say</h2>
+          <p class="section-desc">Over 500 families have successfully bought, sold, or built their dream homes with Dream Star Real Estate.</p>
+          <div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+            <button class="btn btn-outline btn-sm" id="writeReviewBtn">Write a Review</button>
+            <div class="owner-section-ctrl" style="display:none;">
+              <button class="owner-edit-pill-btn" onclick="window.openAddReviewModal();">👑 + Add Customer Review</button>
+              <button class="owner-edit-pill-btn" onclick="window.openManageContentSection('reviews');">⚙️ Manage Reviews</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews Slider Header Controls -->
+        <div class="reviews-slider-header">
+          <div class="slider-nav-arrows">
+            <button class="slider-nav-btn" id="reviewPrevBtn" type="button" onclick="window.slideReviews(-1);" aria-label="Previous Review">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 19l-7-7 7-7"/></svg>
+              <span>Prev</span>
+            </button>
+            <button class="slider-nav-btn" id="reviewNextBtn" type="button" onclick="window.slideReviews(1);" aria-label="Next Review">
+              <span>Next</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="reviews-wrapper" id="reviewsWrapper">
+          <div class="reviews-grid" id="reviewsContainer">
+            <!-- Dynamic reviews rendered by app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> <!-- END VIEW 7: REVIEWS -->
+
+  <!-- ======================================================== -->
+  <!-- VIEW 7.5: FAQS PAGE                                     -->
+  <!-- ======================================================== -->
+  <div class="spa-view" id="view-faqs">
+    <!-- FAQ SECTION -->
+    <section class="faq-section" id="faqs">
+      <div class="wrap">
+        <div class="section-header">
+          <span class="section-tag">Common Inquiries</span>
+          <h2 class="section-title gold-text">Frequently Asked Questions</h2>
+          <p class="section-desc">Clear, direct answers regarding DTCP &amp; CMDA approvals, bank loans, Patta transfers, and property site tours.</p>
+          <div class="owner-section-ctrl" style="display:none;margin-top:12px;">
+            <button class="owner-edit-pill-btn" onclick="window.openAddFaqModal();">➕ Add FAQ</button>
+            <button class="owner-edit-pill-btn" onclick="window.openManageContentSection('faqs');">⚙️ Manage FAQs</button>
+          </div>
+        </div>
+
+        <div class="faq-grid" id="faqsContainer">
+          <!-- Dynamic FAQs rendered by app.js -->
+        </div>
+
+        <div style="margin-top:40px;text-align:center;background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:30px;">
+          <h3 style="color:var(--gold-light);margin-bottom:8px;">Have a specific question not listed here?</h3>
+          <p style="color:var(--mute);margin-bottom:16px;">Speak directly with our senior legal and property advisors at Anuppambattu.</p>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="tel:+919994270551" class="btn btn-primary" onclick="window.triggerCallAutomation('9994270551'); return false;">📞 Call 99942 70551</a>
+            <a href="https://wa.me/919994270551" target="_blank" rel="noopener" class="btn btn-whatsapp">💬 Chat on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> <!-- END VIEW: FAQS -->
+
+  <!-- ======================================================== -->
+  <!-- VIEW 8: CONTACT PAGE (STANDALONE CONTACT DETAILS)       -->
+  <!-- ======================================================== -->
+  <div class="spa-view" id="view-contact">
+    <!-- CONTACT & SITE VISIT SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="wrap">
+        <div class="section-header">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title gold-text">Schedule a Free Site Visit &amp; Consultation</h2>
+          <p class="section-desc">Visit our office or request a guided site inspection with our senior property advisors.</p>
+          <div class="owner-section-ctrl" style="display:none;margin-top:12px;">
+            <button class="owner-edit-pill-btn" onclick="window.openManageContentSection('contact');">📞 Edit Contact &amp; Office Info</button>
+          </div>
+        </div>
+
+        <div class="contact-layout-grid">
+          <!-- Contact Details Panel -->
+          <div class="contact-info-panel">
+            <h3 style="font-size:1.35rem;margin-bottom:10px;">Office Headquarters</h3>
+            
+            <div class="contact-detail-row">
+              <div class="contact-icon-box">📍</div>
+              <div class="contact-detail-content">
+                <h4>Main Office Address</h4>
+                <p id="contactFullAddress">No.12 Rajapalayam Street, RS Road, Anuppambattu Railway Gate Opposite, 601203</p>
+                <a id="contactMapLink" href="https://www.google.com/maps/search/?api=1&query=Rajapalayam+Street+RS+Road+Anuppambattu+601203" target="_blank" rel="noopener" style="font-size:0.85rem;color:var(--gold);display:inline-block;margin-top:4px;">
+                  Open on Google Maps ↗
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-icon-box">📞</div>
+              <div class="contact-detail-content">
+                <h4>Direct Phone Lines</h4>
+                <a id="contactPhone1" href="tel:+919994270551" onclick="window.triggerCallAutomation('9994270551'); return false;">+91 99942 70551</a><br>
+                <a id="contactPhone2" href="tel:+919043743426" onclick="window.triggerCallAutomation('9043743426'); return false;">+91 90437 43426</a>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-icon-box">✉️</div>
+              <div class="contact-detail-content">
+                <h4>Official Email</h4>
+                <a id="contactEmail" href="mailto:dreamstarrealestate76@gmail.com" onclick="window.triggerMailAutomation('General Inquiry', 'Vanakkam Dream Star Team');">dreamstarrealestate76@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-icon-box">🕒</div>
+              <div class="contact-detail-content">
+                <h4>Consultation Hours</h4>
+                <p id="contactHours">Monday - Sunday: 8:30 AM to 8:30 PM</p>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:12px;margin-top:10px;">
+              <a id="contactWaBtn" href="https://wa.me/919994270551?text=Hi%20Dream%20Star%20Real%20Estate,%20I%20would%20like%20to%20schedule%20a%20site%20visit." target="_blank" rel="noopener" class="btn btn-wa" style="flex:1;" onclick="window.triggerWhatsAppAutomation('contact'); return false;">
+                Chat on WhatsApp
+              </a>
+              <a id="contactCallBtn" href="tel:+919994270551" class="btn btn-outline" style="flex:1;" onclick="window.triggerCallAutomation('9994270551'); return false;">
+                Call Office
+              </a>
+            </div>
+          </div>
+
+          <!-- Site Visit Booking Form -->
+          <div class="contact-form-panel">
+            <h3 style="font-size:1.35rem;margin-bottom:14px;">Book a Site Inspection</h3>
+            <form id="inquiryForm" onsubmit="window.handleInquirySubmit(event);">
+              <div class="form-group" style="margin-bottom:14px;">
+                <label for="inqName">Full Name *</label>
+                <input type="text" id="inqName" class="form-control" required placeholder="Enter your name">
+              </div>
+
+              <div class="form-group" style="margin-bottom:14px;">
+                <label for="inqPhone">Mobile Number (WhatsApp) *</label>
+                <input type="tel" id="inqPhone" class="form-control" required placeholder="e.g. 98401 23456">
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+                <div class="form-group">
+                  <label for="inqType">Looking For</label>
+                  <select id="inqType" class="form-control">
+                    <option value="Villa">Independent Villa</option>
+                    <option value="Land">Residential Plot / Land</option>
+                    <option value="House">House</option>
+                    <option value="Commercial">Commercial Property</option>
+                    <option value="Apartment">Apartment</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inqBudget">Approx Budget</label>
+                  <select id="inqBudget" class="form-control">
+                    <option value="Under ₹30 Lakhs">Under ₹30 Lakhs</option>
+                    <option value="₹30 - 50 Lakhs">₹30 - 50 Lakhs</option>
+                    <option value="₹50 - 80 Lakhs">₹50 - 80 Lakhs</option>
+                    <option value="Above ₹1 Crore">Above ₹1 Crore</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom:14px;">
+                <label for="inqDate">Preferred Site Visit Date &amp; Time</label>
+                <input type="text" id="inqDate" class="form-control" placeholder="e.g. Upcoming Sunday Morning">
+              </div>
+
+              <div class="form-group" style="margin-bottom:18px;">
+                <label for="inqMessage">Specific Requirements / Location</label>
+                <textarea id="inqMessage" class="form-control" rows="3" placeholder="Tell us what you are looking for (e.g. East facing, near station, bank loan required)..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;">
+                Submit &amp; Schedule Inspection
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> <!-- END VIEW 8: CONTACT -->
+</main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-link" style="margin-bottom:14px;">
+            <div class="brand-logo-emblem">★</div>
+            <div class="brand-meta">
+              <span class="brand-title">DREAM STAR</span>
+              <span class="brand-subtitle">REAL ESTATE &amp; DEVELOPERS</span>
+            </div>
+          </div>
+          <p style="margin-bottom:14px;line-height:1.6;" id="footerAboutText">
+            Premier property developer and consultancy in Anuppambattu, Minjur, and North Chennai. Delivering 100% legally clear plots, custom villas, and prime commercial investments.
+          </p>
+          <p style="font-size:0.8rem;color:var(--gold);">
+            ✦ RERA Registered • DTCP Approved Projects
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home" onclick="window.switchTab('home'); return false;">Home</a></li>
+            <li><a href="#properties" onclick="window.switchTab('properties'); return false;">Featured Properties</a></li>
+            <li><a href="#services" onclick="window.switchTab('services'); return false;">Legal &amp; Construction Services</a></li>
+            <li><a href="#guides" onclick="window.switchTab('guides'); return false;">DTCP Buyer's Checklist</a></li>
+            <li><a href="#about" onclick="window.switchTab('about'); return false;">About Dream Star</a></li>
+            <li><a href="#reviews" onclick="window.switchTab('reviews'); return false;">Customer Testimonials</a></li>
+            <li><a href="#contact" onclick="window.switchTab('contact'); return false;">Office Directions &amp; Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Desk</h4>
+          <p style="margin-bottom:8px;">No.12 Rajapalayam Street, RS Road, Opposite Anuppambattu Railway Gate, 601203</p>
+          <p style="margin-bottom:8px;">Phone: +91 99942 70551 / +91 90437 43426</p>
+          <p style="margin-bottom:8px;">Email: dreamstarrealestate76@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; <span id="currentYear">2026</span> Dream Star Real Estate &amp; Developers. All Rights Reserved.
+        </div>
+        <div>
+          <!-- OWNER ACCESS SHORTCUT -->
+          <button type="button" class="btn btn-gold btn-sm" id="discreetOwnerBtn" onclick="window.handleOwnerAccessTrigger();" title="Management Access" style="font-size:0.75rem;padding:4px 10px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span>👑 Owner CMS Portal</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE BOTTOM TABS (SPA Single View Navigation) -->
+  <nav class="mobile-nav-tabs">
+    <a href="#home" class="mobile-tab-btn active" data-tab="home" onclick="window.switchTab('home'); return false;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="#properties" class="mobile-tab-btn" data-tab="properties" onclick="window.switchTab('properties'); return false;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg>
+      <span>Listings</span>
+    </a>
+    <a href="#about" class="mobile-tab-btn" data-tab="about" onclick="window.switchTab('about'); return false;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <span>About</span>
+    </a>
+    <a href="#contact" class="mobile-tab-btn" data-tab="contact" onclick="window.switchTab('contact'); return false;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Contact</span>
+    </a>
+    <button class="mobile-tab-btn" onclick="window.handleOwnerAccessTrigger();" style="color:var(--gold);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+      <span>Owner</span>
+    </button>
+  </nav>
+
+  <!-- FLOATING WHATSAPP BUTTON (AUTOMATION ENABLED) -->
+  <a id="floatingWaBtn" href="https://wa.me/919994270551?text=Hi%20Dream%20Star%20Real%20Estate,%20I%20am%20interested%20in%20your%20properties." target="_blank" rel="noopener" class="fab-whatsapp" title="Chat on WhatsApp" onclick="window.triggerWhatsAppAutomation('floating'); return false;">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.53 1.961.815 2.796.815 3.183 0 5.769-2.587 5.77-5.766-.001-3.182-2.588-5.768-5.77-5.768zm0 10.363c-.808 0-1.637-.231-2.392-.687l-.171-.101-1.776.466.474-1.733-.112-.178c-.521-.832-.796-1.503-.795-2.531.001-2.535 2.064-4.597 4.601-4.597 2.537 0 4.6 2.062 4.602 4.597 0 2.536-2.064 4.598-4.603 4.598z"/></svg>
+  </a>
+
+  <!-- ======================================================== -->
+  <!-- MODALS -->
+  <!-- ======================================================== -->
+
+  <!-- PROPERTY DETAILS MODAL -->
+  <div class="modal-overlay" id="propDetailModal">
+    <div class="modal-box modal-large">
+      <div class="modal-header">
+        <h3 id="modalPropTitle" class="gold-text" style="font-size:1.4rem;">Property Specifications</h3>
+        <button class="modal-close-btn" onclick="window.closeModal('propDetailModal');">&times;</button>
+      </div>
+      <div id="modalPropContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- WRITE REVIEW MODAL -->
+  <div class="modal-overlay" id="writeReviewModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="gold-text">Submit Customer Review</h3>
+        <button class="modal-close-btn" onclick="window.closeModal('writeReviewModal');">&times;</button>
+      </div>
+      <form onsubmit="window.handleReviewSubmit(event);">
+        <div class="form-group" style="margin-bottom:14px;">
+          <label for="revAuthor">Your Name *</label>
+          <input type="text" id="revAuthor" class="form-control" required placeholder="e.g. Anand Kumar">
+        </div>
+        <div class="form-group" style="margin-bottom:14px;">
+          <label for="revLocation">Location / City</label>
+          <input type="text" id="revLocation" class="form-control" placeholder="e.g. Anuppambattu / Chennai">
+        </div>
+        <div class="form-group" style="margin-bottom:14px;">
+          <label for="revRating">Rating</label>
+          <select id="revRating" class="form-control">
+            <option value="5">★★★★★ 5 Stars (Exceptional)</option>
+            <option value="4">★★★★☆ 4 Stars (Very Good)</option>
+            <option value="3">★★★☆☆ 3 Stars (Good)</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+          <label for="revComment">Your Experience / Feedback *</label>
+          <textarea id="revComment" class="form-control" rows="3" required placeholder="Describe your experience with Dream Star Real Estate..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Post Review</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CLIENT PORTAL LOGIN / REGISTER MODAL (NORMAL USERS) -->
+  <div class="modal-overlay" id="clientAuthModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="gold-text" id="clientAuthTitle">Client Sign In</h3>
+        <button class="modal-close-btn" onclick="window.closeModal('clientAuthModal');">&times;</button>
+      </div>
+
+      <!-- Sign In Form -->
+      <div id="clientSignInPane">
+        <!-- Google / Gmail One-Click Sign In -->
+        <button type="button" class="btn btn-google" onclick="window.signInWithGoogle('user');" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:#ffffff;color:#1f2937;font-weight:600;border:1px solid #d1d5db;border-radius:8px;padding:10px 16px;cursor:pointer;margin-bottom:14px;box-shadow:0 2px 6px rgba(0,0,0,0.1);transition:all 0.2s ease;">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+          <span>Continue with Google (Gmail)</span>
+        </button>
+
+        <div style="display:flex;align-items:center;margin:12px 0 16px;color:var(--mute);font-size:0.75rem;">
+          <div style="flex:1;height:1px;background:var(--card-border);"></div>
+          <span style="padding:0 8px;">OR SIGN IN WITH PASSWORD</span>
+          <div style="flex:1;height:1px;background:var(--card-border);"></div>
+        </div>
+
+        <form onsubmit="window.handleClientLogin(event);">
+          <div class="form-group" style="margin-bottom:14px;">
+            <label for="clientEmail">Email Address *</label>
+            <input type="email" id="clientEmail" class="form-control" required placeholder="Enter your email address">
+          </div>
+          <div class="form-group" style="margin-bottom:20px;">
+            <label for="clientPassword">Password *</label>
+            <input type="password" id="clientPassword" class="form-control" required placeholder="••••••••">
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-bottom:12px;">Sign In to Client Portal</button>
+        </form>
+        <p style="font-size:0.85rem;color:var(--mute);text-align:center;">
+          Don't have a client account? <a href="#" onclick="window.toggleClientAuthMode('register');return false;" style="color:var(--gold);">Register here</a>
+        </p>
+      </div>
+
+      <!-- Register Form -->
+      <div id="clientRegisterPane" style="display:none;">
+        <form onsubmit="window.handleClientRegister(event);">
+          <div class="form-group" style="margin-bottom:14px;">
+            <label for="regName">Full Name *</label>
+            <input type="text" id="regName" class="form-control" required placeholder="e.g. Suresh Kumar">
+          </div>
+          <div class="form-group" style="margin-bottom:14px;">
+            <label for="regPhone">Mobile Number *</label>
+            <input type="tel" id="regPhone" class="form-control" required placeholder="e.g. 98401 23456">
+          </div>
+          <div class="form-group" style="margin-bottom:14px;">
+            <label for="regEmail">Email Address *</label>
+            <input type="email" id="regEmail" class="form-control" required placeholder="e.g. suresh@example.com">
+          </div>
+          <div class="form-group" style="margin-bottom:20px;">
+            <label for="regPassword">Create Password *</label>
+            <input type="password" id="regPassword" class="form-control" required minlength="6" placeholder="At least 6 characters">
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-bottom:12px;">Create Client Account</button>
+        </form>
+        <p style="font-size:0.85rem;color:var(--mute);text-align:center;">
+          Already have an account? <a href="#" onclick="window.toggleClientAuthMode('login');return false;" style="color:var(--gold);">Sign In</a>
+        </p>
+      </div>
+
+      <!-- Logged In Client Dashboard Pane -->
+      <div id="clientDashboardPane" style="display:none;">
+        <div style="padding:16px;background:rgba(3,8,39,0.6);border-radius:12px;margin-bottom:20px;">
+          <h4 id="clientDashName" style="color:var(--gold-light);">Welcome, Client</h4>
+          <p id="clientDashEmail" style="font-size:0.85rem;color:var(--mute);"></p>
+        </div>
+        <h4 style="margin-bottom:10px;">Your Saved Favorite Properties</h4>
+        <div id="clientSavedList" style="margin-bottom:20px;">
+          <p style="color:var(--mute);font-size:0.85rem;">No saved properties yet. Click the heart icon on any property to save it.</p>
+        </div>
+        <button class="btn btn-outline" style="width:100%;" onclick="window.handleClientLogout();">Sign Out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OWNER LOGIN DIALOG (CLEAN & DEDICATED GMAIL AUTH) -->
+  <div class="modal-overlay" id="ownerLoginModal">
+    <div class="modal-box" style="text-align:center;">
+      <div class="modal-header" style="justify-content:center;position:relative;">
+        <h3 class="gold-text" style="display:flex;align-items:center;gap:8px;font-size:1.25rem;">
+          <span>👑</span> Owner &amp; Admin Portal
+        </h3>
+        <button class="modal-close-btn" onclick="window.closeModal('ownerLoginModal');" style="position:absolute;right:0;top:0;">&times;</button>
+      </div>
+      <p style="font-size:0.9rem;color:var(--mute);margin:12px 0 20px;line-height:1.6;">
+        Administrative access for <strong>Dream Star Real Estate &amp; Developers</strong>. Click below to sign in directly with your registered Owner Google account.
+      </p>
+
+      <!-- Owner 1-Click Google / Gmail Sign In (Primary Action) -->
+      <button type="button" class="btn btn-google" onclick="window.signInWithGoogle('owner');" style="width:100%;display:flex;align-items:center;justify-content:center;gap:12px;background:#ffffff;color:#1f2937;font-weight:700;font-size:1.02rem;border:1px solid #d1d5db;border-radius:10px;padding:14px 20px;cursor:pointer;margin-bottom:14px;box-shadow:0 4px 12px rgba(0,0,0,0.12);transition:all 0.2s ease;">
+        <svg width="22" height="22" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+        <span>Sign In with Owner Gmail</span>
+      </button>
+
+      <div style="margin-top:14px;">
+        <a href="#" onclick="document.getElementById('ownerPasswordForm').style.display = (document.getElementById('ownerPasswordForm').style.display === 'none' ? 'block' : 'none');return false;" style="font-size:0.8rem;color:var(--mute);text-decoration:none;">
+          🔒 Or sign in with password
+        </a>
+      </div>
+
+      <form id="ownerPasswordForm" style="display:none;margin-top:16px;text-align:left;" onsubmit="window.handleOwnerLogin(event);">
+        <div class="form-group" style="margin-bottom:12px;">
+          <label for="ownerEmail">Owner Email *</label>
+          <input type="email" id="ownerEmail" class="form-control" required placeholder="dreamstarrealestate76@gmail.com">
+        </div>
+        <div class="form-group" style="margin-bottom:16px;">
+          <label for="ownerPassword">Password *</label>
+          <input type="password" id="ownerPassword" class="form-control" required placeholder="Enter password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Verify &amp; Enter CMS</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- FULL OWNER MANAGEMENT PORTAL (CMS DASHBOARD) -->
+  <!-- ======================================================== -->
+  <div class="owner-portal-panel" id="ownerPortalPanel">
+    <div class="owner-header-bar">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span class="brand-logo-emblem" style="width:36px;height:36px;font-size:18px;">★</span>
+        <div>
+          <h3 class="gold-text" style="font-size:1.1rem;line-height:1;">Dream Star Management CMS</h3>
+          <span id="ownerPortalBadge" style="font-size:0.75rem;color:var(--mute);">Owner: dreamstarrealestate76@gmail.com • Cloud Database Live</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn btn-success btn-sm" onclick="window.openAddLandModal();">🌱 + Upload Land / Plot</button>
+        <button class="btn btn-primary btn-sm" onclick="window.openAddPropertyModal();">+ Add Listing</button>
+        <button class="btn btn-outline btn-sm" onclick="window.closeOwnerPortal();">View Live Site</button>
+        <button class="btn btn-danger btn-sm" onclick="window.handleOwnerLogout();">Logout</button>
+      </div>
+    </div>
+
+    <div class="wrap" style="padding-top:20px;">
+      <!-- Navigation Tabs inside Owner Portal -->
+      <div class="owner-nav-tabs">
+        <button class="owner-tab-link active" data-tab="ownerTabProps">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          <span>Listings Manager</span>
+        </button>
+        <button class="owner-tab-link" data-tab="ownerTabContent">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          <span>Website Content Editor</span>
+        </button>
+        <button class="owner-tab-link" data-tab="ownerTabInquiries">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Customer Inquiries &amp; Tour Leads</span>
+        </button>
+        <button class="owner-tab-link" data-tab="ownerTabReviews">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Reviews Manager</span>
+        </button>
+      </div>
+
+      <!-- TAB 1: PROPERTIES MANAGER -->
+      <div class="owner-view-tab active" id="ownerTabProps">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px;">
+          <div>
+            <h3 style="font-size:1.3rem;">All Property Listings (<span id="adminPropCount">0</span>)</h3>
+            <p style="font-size:0.85rem;color:var(--mute);">Manage properties, edit pricing, change details, or delete listings in real-time.</p>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-success" onclick="window.openAddLandModal();">🌱 + Upload Land / Plot</button>
+            <button class="btn btn-primary" onclick="window.openAddPropertyModal();">+ Add Property</button>
+          </div>
+        </div>
+
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Photo</th>
+                <th>Title &amp; Type</th>
+                <th>Price</th>
+                <th>Location</th>
+                <th>Approval</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminPropsTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 2: WEBSITE CONTENT & TOPICS EDITOR -->
+      <div class="owner-view-tab" id="ownerTabContent">
+        <div style="margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <div>
+            <h3 style="font-size:1.3rem;">Master Website Content &amp; Topics Manager</h3>
+            <p style="font-size:0.85rem;color:var(--mute);">Full control to Add, Edit, or Delete any content across all topics on your website.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-outline btn-sm" onclick="window.resetWebsiteContent();">🔄 Reset Content to Defaults</button>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr;gap:24px;">
+
+          <!-- SECTION A: SERVICES SOLUTIONS (ADD / EDIT / DELETE) -->
+          <div class="cms-section-card" id="cmsSectionServices">
+            <div class="cms-card-header">
+              <div>
+                <h4 class="cms-card-title">🛠️ Real Estate Services (<span id="adminServicesCount">0</span>)</h4>
+                <p style="font-size:0.82rem;color:var(--mute);margin:4px 0 0;">Add new builder or consultancy services, update descriptions, or remove old ones.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="window.openAddServiceModal();">➕ + Add New Service</button>
+            </div>
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th style="width:70px;">Icon</th>
+                    <th>Service Name</th>
+                    <th>Description</th>
+                    <th style="width:140px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminServicesTableBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SECTION B: LEGAL CHECKLIST & BUYER GUIDES (ADD / EDIT / DELETE) -->
+          <div class="cms-section-card" id="cmsSectionGuides">
+            <div class="cms-card-header">
+              <div>
+                <h4 class="cms-card-title">📜 Buyer Legal Checklist &amp; Guides (<span id="adminGuidesCount">0</span>)</h4>
+                <p style="font-size:0.82rem;color:var(--mute);margin:4px 0 0;">Add legal vetting advice, DTCP checklist steps, or modify guidelines for Tamil Nadu buyers.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="window.openAddGuideModal();">➕ + Add Checklist Item</button>
+            </div>
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th style="width:70px;">Step</th>
+                    <th>Checklist Title</th>
+                    <th>Detailed Advisory Description</th>
+                    <th style="width:140px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminGuidesTableBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SECTION C: WHY TRUST US / PILLARS (ADD / EDIT / DELETE) -->
+          <div class="cms-section-card" id="cmsSectionPillars">
+            <div class="cms-card-header">
+              <div>
+                <h4 class="cms-card-title">🛡️ Why Buyers Trust Dream Star (<span id="adminPillarsCount">0</span>)</h4>
+                <p style="font-size:0.82rem;color:var(--mute);margin:4px 0 0;">Add key advantages, trust pillars, and legal security highlights shown on the About page.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="window.openAddPillarModal();">➕ + Add Trust Reason</button>
+            </div>
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Advantage / Pillar Title</th>
+                    <th>Detailed Explanation</th>
+                    <th style="width:140px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminPillarsTableBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SECTION D: LOCATION HOTSPOTS & FILTER AREAS (ADD / EDIT / DELETE) -->
+          <div class="cms-section-card" id="cmsSectionLocations">
+            <div class="cms-card-header">
+              <div>
+                <h4 class="cms-card-title">📍 Hotspot Locations &amp; Filter Pills (<span id="adminLocationsCount">0</span>)</h4>
+                <p style="font-size:0.82rem;color:var(--mute);margin:4px 0 0;">Add new towns/areas where you sell plots (e.g. Minjur, Ponneri, Gummidipoondi).</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="window.openAddLocationModal();">➕ + Add Location Area</button>
+            </div>
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Location / Area Name</th>
+                    <th>Filter Tag</th>
+                    <th style="width:140px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminLocationsTableBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SECTION E: FAQS MANAGER (ADD / EDIT / DELETE) -->
+          <div class="cms-section-card" id="cmsSectionFaqs">
+            <div class="cms-card-header">
+              <div>
+                <h4 class="cms-card-title">❓ Frequently Asked Questions (<span id="adminFaqsCount">0</span>)</h4>
+                <p style="font-size:0.82rem;color:var(--mute);margin:4px 0 0;">Add real estate FAQs about bank loans, DTCP approvals, patta transfers, or site tours.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="window.openAddFaqModal();">➕ + Add New FAQ</button>
+            </div>
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th style="width:140px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminFaqsTableBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SECTION F: HERO BANNER & STATS FORM -->
+          <div class="cms-section-card" id="cmsSectionHero">
+            <div class="cms-card-header">
+              <h4 class="cms-card-title">🏠 Hero Banner &amp; Key Highlights</h4>
+            </div>
+            <form onsubmit="window.saveHeroContent(event);">
+              <div class="form-group" style="margin-bottom:14px;">
+                <label>Main Headline</label>
+                <input type="text" id="editHeroTitle" class="form-control" required>
+              </div>
+              <div class="form-group" style="margin-bottom:14px;">
+                <label>Subheadline / Description</label>
+                <textarea id="editHeroSubtitle" class="form-control" rows="2" required></textarea>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px;">
+                <div class="form-group">
+                  <label>Experience (Years)</label>
+                  <input type="text" id="editExpYears" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Happy Clients</label>
+                  <input type="text" id="editHappyClients" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Verified Titles Rate</label>
+                  <input type="text" id="editVerifiedRate" class="form-control">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm">Save Hero Content</button>
+            </form>
+          </div>
+
+          <!-- SECTION G: CONTACT DETAILS & OFFICE INFO -->
+          <div class="cms-section-card" id="cmsSectionContact">
+            <div class="cms-card-header">
+              <h4 class="cms-card-title">📞 Company Contact &amp; Office Information</h4>
+            </div>
+            <form onsubmit="window.saveContactContent(event);">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+                <div class="form-group">
+                  <label>Primary Phone Number</label>
+                  <input type="text" id="editPhone1" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label>Secondary Phone Number</label>
+                  <input type="text" id="editPhone2" class="form-control">
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+                <div class="form-group">
+                  <label>WhatsApp Number (without +)</label>
+                  <input type="text" id="editWhatsapp" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label>Official Email Address</label>
+                  <input type="email" id="editEmail" class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom:14px;">
+                <label>Physical Office Address</label>
+                <textarea id="editAddress" class="form-control" rows="2" required></textarea>
+              </div>
+              <div class="form-group" style="margin-bottom:16px;">
+                <label>Working / Consultation Hours</label>
+                <input type="text" id="editHours" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm">Save Contact Details</button>
+            </form>
+          </div>
+
+          <!-- SECTION H: ABOUT SECTION & GOVERNMENT LICENSES -->
+          <div class="cms-section-card" id="cmsSectionAbout">
+            <div class="cms-card-header">
+              <h4 class="cms-card-title">🏛️ About Company &amp; License Approvals</h4>
+            </div>
+            <form onsubmit="window.saveAboutContent(event);">
+              <div class="form-group" style="margin-bottom:14px;">
+                <label>Company Headline / Tagline</label>
+                <input type="text" id="editAboutTagline" class="form-control">
+              </div>
+              <div class="form-group" style="margin-bottom:14px;">
+                <label>Company About Description</label>
+                <textarea id="editAboutDesc" class="form-control" rows="3"></textarea>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;">
+                <div class="form-group">
+                  <label>RERA Registration No.</label>
+                  <input type="text" id="editRera" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>DTCP Approval Ref</label>
+                  <input type="text" id="editDtcp" class="form-control">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm">Save About Information</button>
+            </form>
+          </div>
+
+          <!-- SECTION I: RESET & RESTORE CONTROLS -->
+          <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.3);border-radius:var(--radius);padding:24px;">
+            <h4 style="margin-bottom:12px;font-size:1.15rem;color:#f87171;">System Recovery &amp; Factory Reset</h4>
+            <p style="font-size:0.85rem;color:var(--mute);margin-bottom:16px;">If you ever want to clear all custom additions and restore original default content, click below.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <button type="button" class="btn btn-outline btn-sm" onclick="window.resetWebsiteContent();">🔄 Reset Content to Factory Defaults</button>
+              <button type="button" class="btn btn-danger btn-sm" onclick="window.resetPropertiesToDefault();">🗑️ Reset Listings to Default Sample Data</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: INQUIRIES & TOUR LEADS -->
+      <div class="owner-view-tab" id="ownerTabInquiries">
+        <div style="margin-bottom:16px;">
+          <h3 style="font-size:1.3rem;">Customer Inquiries &amp; Site Tour Requests (<span id="adminInquiryCount">0</span>)</h3>
+          <p style="font-size:0.85rem;color:var(--mute);">Prospective buyers who contacted you through the website form. Call or message on WhatsApp directly.</p>
+        </div>
+
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Client Name &amp; Contact</th>
+                <th>Looking For</th>
+                <th>Budget / Preferred Date</th>
+                <th>Requirements</th>
+                <th>Status</th>
+                <th>Quick Action</th>
+              </tr>
+            </thead>
+            <tbody id="adminInquiriesTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 4: REVIEWS MANAGER -->
+      <div class="owner-view-tab" id="ownerTabReviews">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px;">
+          <div>
+            <h3 style="font-size:1.3rem;">Reviews &amp; Client Testimonials Manager</h3>
+            <p style="font-size:0.85rem;color:var(--mute);">Add authentic buyer testimonials, edit existing reviews, or remove spam ratings.</p>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="window.openAddReviewModal();">➕ + Add Customer Review</button>
+        </div>
+
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Author</th>
+                <th>Location</th>
+                <th>Rating</th>
+                <th>Review Comment</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminReviewsTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD / EDIT PROPERTY MODAL -->
+  <div class="modal-overlay" id="propFormModal">
+    <div class="modal-box modal-large">
+      <div class="modal-header">
+        <h3 class="gold-text" id="propModalTitle">Add New Property Listing</h3>
+        <button class="modal-close-btn" onclick="window.closeModal('propFormModal');">&times;</button>
+      </div>
+
+      <form id="propUpsertForm" onsubmit="window.handlePropertyUpsert(event);">
+        <input type="hidden" id="editPropId" value="">
+
+        <div class="form-group" style="margin-bottom:14px;">
+          <label for="propTitle">Property Title *</label>
+          <input type="text" id="propTitle" class="form-control" required placeholder="e.g. Luxury 3 BHK Duplex Villa with Garden">
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;">
+          <div class="form-group">
+            <label for="propCategory">Category *</label>
+            <select id="propCategory" class="form-control" required>
+              <option value="Villa">Independent Villa</option>
+              <option value="Land">Residential Plot / Land</option>
+              <option value="Commercial">Commercial Space</option>
+              <option value="Apartment">Apartment / Flat</option>
+              <option value="House">House</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="propStatus">Status *</label>
+            <select id="propStatus" class="form-control" required>
+              <option value="For Sale">For Sale</option>
+              <option value="For Rent">For Rent</option>
+              <option value="Sold">Sold</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="propPrice">Price String *</label>
+            <input type="text" id="propPrice" class="form-control" required placeholder="e.g. ₹65 Lakhs">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;">
+          <div class="form-group">
+            <label for="propPriceNum">Price in Lakhs (for sorting)</label>
+            <input type="number" id="propPriceNum" class="form-control" placeholder="65">
+          </div>
+
+          <div class="form-group">
+            <label for="propLocation">Location / Area *</label>
+            <input type="text" id="propLocation" class="form-control" required placeholder="e.g. RS Road, Anuppambattu">
+          </div>
+
+          <div class="form-group">
+            <label for="propAreaSqft">Built-up / Plot Area (Sq Ft)</label>
+            <input type="number" id="propAreaSqft" class="form-control" placeholder="1850">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px;">
+          <div class="form-group">
+            <label for="propBedrooms">Bedrooms</label>
+            <input type="number" id="propBedrooms" class="form-control" placeholder="3">
+          </div>
+          <div class="form-group">
+            <label for="propBathrooms">Bathrooms</label>
+            <input type="number" id="propBathrooms" class="form-control" placeholder="3">
+          </div>
+          <div class="form-group">
+            <label for="propFacing">Facing</label>
+            <input type="text" id="propFacing" class="form-control" placeholder="e.g. North-East">
+          </div>
+          <div class="form-group">
+            <label for="propApproval">Approval Authority</label>
+            <input type="text" id="propApproval" class="form-control" placeholder="e.g. DTCP &amp; RERA Approved">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:14px;">
+          <label for="propImageUrl">Image URL (High-Res Photo)</label>
+          <input type="url" id="propImageUrl" class="form-control" placeholder="https://images.unsplash.com/photo-...">
+        </div>
+
+        <div class="form-group" style="margin-bottom:14px;">
+          <label for="propFeatures">Key Features &amp; Amenities (comma separated)</label>
+          <input type="text" id="propFeatures" class="form-control" placeholder="Car Parking, 24/7 Water, Compound Wall, 30ft Road, Bank Loan 85%">
+        </div>
+
+        <div class="form-group" style="margin-bottom:14px;">
+          <label for="propDescription">Full Detailed Description *</label>
+          <textarea id="propDescription" class="form-control" rows="4" required placeholder="Write a complete description of the property, legal status, neighborhood highlights..."></textarea>
+        </div>
+
+        <div class="form-group" style="margin-bottom:20px;flex-direction:row;align-items:center;gap:10px;">
+          <input type="checkbox" id="propIsFeatured" style="width:18px;height:18px;accent-color:var(--gold);">
+          <label for="propIsFeatured" style="text-transform:none;font-size:0.95rem;color:var(--ink);cursor:pointer;">
+            Feature this property on homepage top section
+          </label>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;gap:12px;">
+          <button type="button" class="btn btn-outline" onclick="window.closeModal('propFormModal');">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="savePropBtn">Save Property</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT SERVICE -->
+  <div class="modal-overlay" id="serviceModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="gold-text" id="serviceModalTitle">🛠️ Add / Edit Real Estate Service</h3>
+        <button class="modal-close-btn" onclick="window.closeModal('serviceModal');">&times;</button>
+      </div>
+      <form onsubmit="window.handleSaveService(event);">
+        <input type="hidden" id="serviceEditId" value="">
+        <div style="display:grid;grid-template-columns:100px 1fr;gap:14px;margin-bottom:14px;">
+          <div class="form-group">
+            <label for="serviceIcon">Icon Emoji *</label>
+            <input type="text" id="serviceIcon" class="form-control" required placeholder="🏠" style="font-size:1.4rem;text-align:center;">
+          </div>
+          <div class="form-group">
+            <label for="serviceTitle">Service Name *</label>
+            <input type="text" id="serviceTitle" class="form-control" required placeholder="e.g. DTCP &amp; CMDA Approval Liaison">
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+          <label for="serviceDesc">Detailed Service Description *</label>
+          <textarea id="serviceDesc" class="form-control" rows="3" required placeholder="Explain how you help the client with this service..."></textarea>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:12px;">
+          <button type="button" class="btn btn-outline" onclick="window.closeModal('serviceModal');">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Service</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT LEGAL GUIDE CHECKLIST ITEM -->
+  <div class="modal-overlay" id="guideModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="gold-text" id="guideModalTitle">📜 Add / Edit Buyer Legal Guide</h3>
+        <button class="modal-close-btn" onclick="window.closeModal('guideModal');">&times;</button>
+      </div>
+      <form onsubmit="window.handleSaveGuide(event);">
+        <input type="hidden" id="guideEditId" value="">
+        <div style="display:grid;grid-template-columns:90px 1fr;gap:14px;margin-bottom:14px;">
+          <div class="form-group">
+            <label for="guideStep">Step # *</label>
+            <input type="text" id="guideStep" class="form-control" required placeholder="1" style="text-align:center;">
+          </div>
+          <div class="form-group">
+            <label for="guideTitle">Checklist Title *</label>
+            <input type="text" id="guideTitle" class="form-control" required placeholder="e.g. 30-Year Encumbrance Certificate (EC)">
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+          <label for="guideDesc">Detailed Legal Advice *</label>
+          <textarea id="guideDesc" class="form-control" rows="3" required placeholder="What documents to check, why it matters, and how Dream Star ensures safety..."></textarea>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:12px;">
+          <button type="button" class="btn btn-outline" onclick="window.closeModal('guideModal');">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Checklist Item</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT TRUST PILLAR -->
+  <div class="modal-overlay" id="pillarModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="gold-text" id="pillarModalTitle">🛡️ Add / Edit Trust Pillar</h3>
+        <button class="modal-close-btn" onclick="window.closeModal('pillarModal');">&times;</button>
+      </div>
+      <form onsubmit="window.handleSavePillar(event);">
+        <input type="hidden" id="pillarEditId" value="">
+        <div class="form-group" style="margin-bottom:14px;">
+          <label for="pillarTitle">Advantage / Pillar Headline *</label>
+          <input type="text" id="pillarTitle" class="form-control" required placeholder="e.g. 100% Parent Title Verification">
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+          <label for="pillarDesc">Explanation / Benefit *</label>
+          <textarea id="pillarDesc" class="form-control" rows="3" required placeholder="Explain why buyers trust Dream Star for this reason..."></textarea>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:12px;">
+          <button type="button" class="btn btn-outline" onclick="window.closeModal('pillarModal');">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Trust Pillar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT LOCATION AREA -->
+  <div class="modal-overlay" id="locationModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="gold-text" id="locationModalTitle">📍 Add / Edit Hotspot Location</h3>
+        <button class="modal-close-btn" onclick="window.closeModal('locationModal');">&times;</button>
+      </div>
+      <form onsubmit="window.handleSaveLocation(event);">
+        <input type="hidden" id="locationEditId" value="">
+        <div class="form-group" style="margin-bottom:20px;">
+          <label for="locationName">Location / Town / Area Name *</label>
+          <input type="text" id="locationName" class="form-control" required placeholder="e.g. Gummidipoondi, Ponneri, Karanodai">
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:12px;">
+          <button type="button" class="btn btn-outline" onclick="window.closeModal('locationModal');">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Location</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT FAQ -->
+  <div class="modal-overlay" id="faqModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="gold-text" id="faqModalTitle">❓ Add / Edit Frequently Asked Question</h3>
+        <button class="modal-close-btn" onclick="window.closeModal('faqModal');">&times;</button>
+      </div>
+      <form onsubmit="window.handleSaveFaq(event);">
+        <input type="hidden" id="faqEditId" value="">
+        <div class="form-group" style="margin-bottom:14px;">
+          <label for="faqQuestion">Question *</label>
+          <input type="text" id="faqQuestion" class="form-control" required placeholder="e.g. Are all your plots DTCP or CMDA approved?">
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+          <label for="faqAnswer">Answer *</label>
+          <textarea id="faqAnswer" class="form-control" rows="4" required placeholder="Provide a clear, reassuring answer for buyers..."></textarea>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:12px;">
+          <button type="button" class="btn btn-outline" onclick="window.closeModal('faqModal');">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save FAQ</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT CUSTOMER REVIEW (FOR OWNER) -->
+  <div class="modal-overlay" id="reviewModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="gold-text" id="reviewModalTitle">💬 Add / Edit Customer Testimonial</h3>
+        <button class="modal-close-btn" onclick="window.closeModal('reviewModal');">&times;</button>
+      </div>
+      <form onsubmit="window.handleOwnerSaveReview(event);">
+        <input type="hidden" id="reviewEditId" value="">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+          <div class="form-group">
+            <label for="reviewAuthor">Client Name *</label>
+            <input type="text" id="reviewAuthor" class="form-control" required placeholder="e.g. Ramesh Kumar">
+          </div>
+          <div class="form-group">
+            <label for="reviewLocation">Location / Category</label>
+            <input type="text" id="reviewLocation" class="form-control" placeholder="e.g. Anuppambattu / NRI Investor">
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:14px;">
+          <label for="reviewRating">Rating (Stars) *</label>
+          <select id="reviewRating" class="form-control">
+            <option value="5">★★★★★ (5 Stars - Outstanding)</option>
+            <option value="4">★★★★☆ (4 Stars - Very Good)</option>
+            <option value="3">★★★☆☆ (3 Stars - Good)</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+          <label for="reviewComment">Review Content / Testimonial *</label>
+          <textarea id="reviewComment" class="form-control" rows="4" required placeholder="Write what the client appreciated about Dream Star..."></textarea>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:12px;">
+          <button type="button" class="btn btn-outline" onclick="window.closeModal('reviewModal');">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Review</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FLOATING SCROLL TO TOP BUTTON -->
+  <button class="scroll-to-top-btn" id="scrollToTopBtn" type="button" onclick="window.scrollToTop();" title="Scroll to Top" aria-label="Scroll to top">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastNotification">Notification message</div>
+
+  <!-- SCRIPTS & GOOGLE FIREBASE SDK (FREE CLOUD DATABASE & GMAIL AUTH) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "Dream Star Real Estate & Developers",
+  "short_name": "Dream Star",
+  "description": "Buy, sell, and build verified houses and land in Anuppambattu & North Chennai",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#030827",
+  "theme_color": "#030827",
+  "orientation": "portrait-primary",
+  "categories": ["business", "lifestyle", "productivity"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
