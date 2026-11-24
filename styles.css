@@ -1235,9 +1235,9 @@ footer.site-footer {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
-  z-index: 1000;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+  z-index: 3500; /* High z-index to appear on top of .owner-portal-panel (2000) */
   align-items: center;
   justify-content: center;
   padding: 20px;
@@ -1421,7 +1421,7 @@ table.admin-table tr:hover td {
   font-size: 0.9rem;
   font-weight: 600;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-  z-index: 3000;
+  z-index: 99999;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   display: flex;

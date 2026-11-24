@@ -273,7 +273,10 @@
   // Modal helpers
   function openModal(id) {
     const el = document.getElementById(id);
-    if (el) el.classList.add('active');
+    if (el) {
+      el.classList.add('active');
+      el.style.zIndex = '3500';
+    }
   }
   function closeModal(id) {
     const el = document.getElementById(id);
@@ -281,6 +284,12 @@
   }
   window.openModal = openModal;
   window.closeModal = closeModal;
+
+  document.addEventListener('click', function(e) {
+    if (e.target && e.target.classList && e.target.classList.contains('modal-overlay')) {
+      e.target.classList.remove('active');
+    }
+  });
 
   // Safe Escaping
   function esc(str) {
@@ -2071,9 +2080,64 @@
     }).join('');
   }
 
+  window.handlePropertyImageUpload = function (e) {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+
+    const statusEl = document.getElementById('propImageFileStatus');
+    if (statusEl) statusEl.textContent = '⏳ Processing ' + file.name + '...';
+
+    const reader = new FileReader();
+    reader.onload = function (ev) {
+      const img = new Image();
+      img.onload = function () {
+        const canvas = document.createElement('canvas');
+        const maxDim = 1000;
+        let width = img.width;
+        let height = img.height;
+        if (width > height) {
+          if (width > maxDim) {
+            height = Math.round((height * maxDim) / width);
+            width = maxDim;
+          }
+        } else {
+          if (height > maxDim) {
+            width = Math.round((width * maxDim) / height);
+            height = maxDim;
+          }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+
+        document.getElementById('propImageUrl').value = compressedDataUrl;
+
+        const previewBox = document.getElementById('propImagePreviewBox');
+        const previewImg = document.getElementById('propImagePreview');
+        if (previewBox && previewImg) {
+          previewImg.src = compressedDataUrl;
+          previewBox.style.display = 'block';
+        }
+        if (statusEl) statusEl.textContent = '✅ Photo loaded: ' + file.name;
+        toast('📷 Photo attached successfully!');
+      };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  };
+
   window.openAddPropertyModal = function () {
     document.getElementById('propUpsertForm').reset();
     document.getElementById('editPropId').value = '';
+    const fileIn = document.getElementById('propImageFileInput');
+    if (fileIn) fileIn.value = '';
+    const prevBox = document.getElementById('propImagePreviewBox');
+    if (prevBox) prevBox.style.display = 'none';
+    const statusEl = document.getElementById('propImageFileStatus');
+    if (statusEl) statusEl.textContent = 'Upload directly from Phone / Laptop';
+
     document.getElementById('propModalTitle').textContent = 'Add New Property Listing';
     document.getElementById('savePropBtn').textContent = 'Publish Listing';
     document.getElementById('propCategory').value = 'Villa';
@@ -2085,6 +2149,13 @@
   window.openAddLandModal = function () {
     document.getElementById('propUpsertForm').reset();
     document.getElementById('editPropId').value = '';
+    const fileIn = document.getElementById('propImageFileInput');
+    if (fileIn) fileIn.value = '';
+    const prevBox = document.getElementById('propImagePreviewBox');
+    if (prevBox) prevBox.style.display = 'none';
+    const statusEl = document.getElementById('propImageFileStatus');
+    if (statusEl) statusEl.textContent = 'Upload directly from Phone / Laptop';
+
     document.getElementById('propModalTitle').textContent = '🌱 Upload New Land / Plot Listing';
     document.getElementById('savePropBtn').textContent = 'Publish Land Listing';
 
@@ -2110,12 +2181,23 @@
   };
 
   window.openEditPropertyModal = function (id) {
-    const prop = properties.find(p => p.id === id);
+    const prop = properties.find(p => p.id == id);
     if (!prop) return;
 
     document.getElementById('editPropId').value = prop.id;
     document.getElementById('propModalTitle').textContent = 'Edit Property / Land Listing';
     document.getElementById('savePropBtn').textContent = 'Save Changes';
+
+    const fileIn = document.getElementById('propImageFileInput');
+    if (fileIn) fileIn.value = '';
+    const prevBox = document.getElementById('propImagePreviewBox');
+    const prevImg = document.getElementById('propImagePreview');
+    if (prevBox && prevImg && prop.imageUrl) {
+      prevImg.src = prop.imageUrl;
+      prevBox.style.display = 'block';
+    } else if (prevBox) {
+      prevBox.style.display = 'none';
+    }
 
     document.getElementById('propTitle').value = prop.title || '';
     document.getElementById('propCategory').value = prop.category || 'Villa';
@@ -2144,12 +2226,19 @@
     }
 
     const editId = document.getElementById('editPropId').value;
+    let priceNum = Number(document.getElementById('propPriceNum').value) || 0;
+    if (!priceNum) {
+      const priceStr = document.getElementById('propPrice').value;
+      const m = priceStr.match(/(\d+(\.\d+)?)/);
+      if (m) priceNum = parseFloat(m[1]);
+    }
+
     const propData = {
       title: document.getElementById('propTitle').value.trim(),
       category: document.getElementById('propCategory').value,
       status: document.getElementById('propStatus').value,
       price: document.getElementById('propPrice').value.trim(),
-      priceNum: Number(document.getElementById('propPriceNum').value) || 0,
+      priceNum: priceNum,
       location: document.getElementById('propLocation').value.trim(),
       areaSqft: Number(document.getElementById('propAreaSqft').value) || 0,
       bedrooms: Number(document.getElementById('propBedrooms').value) || 0,
@@ -2171,7 +2260,8 @@
         properties[idx] = { ...properties[idx], ...propData, id: properties[idx].id };
       }
     } else {
-      const newId = properties.length > 0 ? Math.max(...properties.map(p => p.id || 0)) + 1 : 1;
+      const newId = properties.length > 0 ? Math.max(...properties.map(p => Number(p.id) || 0)) + 1 : 1;
+      propData.id = newId;
       properties.unshift({
         id: newId,
         ...propData,
@@ -2203,7 +2293,7 @@
     if (window.isFirebaseReady && window.firestoreDb) {
       try {
         const docId = String(isEdit ? editId : (properties[0]?.id || Date.now()));
-        window.firestoreDb.collection('properties').doc(docId).set(propData, { merge: true });
+        window.firestoreDb.collection('properties').doc(docId).set({ ...propData, id: docId }, { merge: true });
       } catch (fErr) { console.warn('Firestore property sync notice:', fErr); }
     }
   };

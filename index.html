@@ -1491,8 +1491,18 @@
         </div>
 
         <div class="form-group" style="margin-bottom:14px;">
-          <label for="propImageUrl">Image URL (High-Res Photo)</label>
-          <input type="url" id="propImageUrl" class="form-control" placeholder="https://images.unsplash.com/photo-...">
+          <label for="propImageUrl">Property Photo (Choose File from Device or Paste Image URL)</label>
+          <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px;flex-wrap:wrap;">
+            <label class="btn btn-outline btn-sm" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin:0;border-color:var(--gold);color:var(--gold);">
+              <span>📁 Choose Photo from Device / Phone</span>
+              <input type="file" id="propImageFileInput" accept="image/*" style="display:none;" onchange="window.handlePropertyImageUpload(event);">
+            </label>
+            <span id="propImageFileStatus" style="font-size:0.8rem;color:var(--mute);">Upload directly from Phone / Laptop</span>
+          </div>
+          <input type="url" id="propImageUrl" class="form-control" placeholder="Or paste image URL (e.g. https://...)">
+          <div id="propImagePreviewBox" style="margin-top:10px;display:none;">
+            <img id="propImagePreview" src="" alt="Property Preview" style="max-height:140px;border-radius:8px;border:1px solid var(--gold);object-fit:cover;">
+          </div>
         </div>
 
         <div class="form-group" style="margin-bottom:14px;">
